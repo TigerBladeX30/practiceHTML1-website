@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Webpage</title>
+    <title>Generate Sample File</title>
 </head>
 <body>
 
-    <h1>Welcome to My Website</h1>
-    
-    <p>This is a paragraph of text. You can replace it with your own content.</p>
-    
-    <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-    </ul>
-    
-    <p>You can learn HTML and build your own web pages!</p>
+    <h1>Generate Sample File</h1>
+
+    <button onclick="generateFile()">Generate File</button>
+
+    <script>
+        function generateFile() {
+            var sampleText = "This is an example file.\nYou can replace this with your own content.";
+
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(sampleText));
+            element.setAttribute('download', 'sample_file.txt');
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+    </script>
 
 </body>
 </html>
